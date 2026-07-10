@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "description": "Planned PSR filename to migrated report route mappings for verify:psr parity scaffolding.",
+  "mappings": [
+    {
+      "filename": "comprep.psr",
+      "target_report_id": "composite-customer-product",
+      "target_route": "/api/v1/reports/composite/customer-product",
+      "status": "planned"
+    }
+  ]
+}
