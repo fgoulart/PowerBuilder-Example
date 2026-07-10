@@ -20,3 +20,40 @@ With the PowerServer projects:
 •	Database Configuration in the Web APIs tab
 	If you use SQL Anywhere as the demo database, no change is needed to the database configuration. 
 	If you use PostgreSQL as the demo database, the default login account is postgres (user)/postgres (password). Please double check the connection. 
+
+
+## PSR golden-master catalog (migration handoff)
+
+This repository is the **read-only origin** for twelve PowerBuilder Examples release-6 PSR DataWindow report samples used as frozen parity baselines in the `power-builder-migration` monorepo.
+
+| File | Report type |
+|------|-------------|
+| `bitmap.psr` | bitmap |
+| `btnmaint.psr` | maintenance |
+| `btnrept.psr` | button |
+| `comprep.psr` | composite |
+| `contact.psr` | contact |
+| `custlist.psr` | list |
+| `deptemps.psr` | group |
+| `deptlist.psr` | list |
+| `empgraph.psr` | graph |
+| `empsals.psr` | graph |
+| `ffempdat.psr` | freeform |
+| `nestrep.psr` | nested |
+
+**Total:** 12 artifacts, 395,785 bytes. SHA-256 digests are recorded in `psr-origin-manifest.json`.
+
+### Client wiring
+
+- `psr-origin-manifest.json` — checksum manifest consumed by `power-builder-migration` `import_psr_fixtures.py` via `PSR_ORIGIN_PATH`.
+- `psr-origin-catalog.json` — PSR-to-web-report route placeholders and structural metadata for parity tests.
+
+Destination REST catalog (implemented in `power-builder-migration`, not here):
+
+- `GET /api/v1/psr/artifacts`
+- `GET /api/v1/psr/artifacts/{filename}`
+- `GET /api/v1/psr/artifacts/{filename}/download`
+- `GET /api/v1/psr/manifest`
+- `GET /api/v1/psr/route-mappings`
+
+This card delivers the **test foundation** for migrated web/PDF reports. It does **not** implement report rendering, the PSR viewer UI (`w_psr_viewer`), or PowerClient `PredownloadFiles` bundling.

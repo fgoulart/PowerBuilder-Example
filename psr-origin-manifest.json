@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "repository": "PowerBuilder-Example",
+  "card": "[JAMES_JIRA_AGENTIC] [Modernization] - Convert PSR golden-master artifacts into automated report parity test fixtures",
+  "labels": ["james-agentic", "modernization", "infrastructure", "backend", "reports", "parity-testing"],
+  "blocked_by": "[JAMES_JIRA_AGENTIC] [Architecture] - PBL library decomposition",
+  "description": "Frozen golden-master checksum manifest for twelve release-6 PSR DataWindow report samples.",
+  "psr_origin_path_default": "/workspace/PowerBuilder-Example",
+  "total_byte_size": 395785,
+  "artifact_count": 12,
+  "artifacts": [
+    {"filename": "bitmap.psr", "byte_size": 5972, "sha256": "07f96f0e29d2638e7ea62cf35cc74e34c19948afec21e15168d66830f3ba14e3", "report_type": "bitmap"},
+    {"filename": "btnmaint.psr", "byte_size": 45589, "sha256": "a5adcd1db82420f0c1a9911ae94a88610bbf04d21dc5d544d8e741dcc838cfdb", "report_type": "maintenance"},
+    {"filename": "btnrept.psr", "byte_size": 34618, "sha256": "50bae87cee9643afe7fbe7e0ea17ac363189cd7b2e63dd21577bbcd75df01a62", "report_type": "button"},
+    {"filename": "comprep.psr", "byte_size": 73838, "sha256": "961ce50207cbcc292365544e8e4f77b824e53c87383e896a60f530f541c0c1d0", "report_type": "composite"},
+    {"filename": "contact.psr", "byte_size": 15483, "sha256": "a0001cb19e3dff552b8958b3dbd5a71c77cc7f383919abfd5f639b964dd71c68", "report_type": "contact"},
+    {"filename": "custlist.psr", "byte_size": 43986, "sha256": "d130ec8a259ce8f3e9ed09d1ff3457e3e511d2d124a2611fc90831146def6eb1", "report_type": "list"},
+    {"filename": "deptemps.psr", "byte_size": 46944, "sha256": "2507615809a602508430436cb984a9a2c25b81fe8de21ea9871390a04f202020", "report_type": "group"},
+    {"filename": "deptlist.psr", "byte_size": 8355, "sha256": "b1807987317f6fba5753a5a443b55e20f13f9bcb11ec4a9bd71f0facf91c1fb5", "report_type": "list"},
+    {"filename": "empgraph.psr", "byte_size": 19760, "sha256": "4e98387213ddf02603d9b920cfe5d80864b7395b504ca36f521f559ab27ad330", "report_type": "graph"},
+    {"filename": "empsals.psr", "byte_size": 17640, "sha256": "6887af5c7e56188b048550b4d27f80e2560df06fcc02c032700c67e8026f6fac", "report_type": "graph"},
+    {"filename": "ffempdat.psr", "byte_size": 45204, "sha256": "08151ac87cfd7062a210ff421858223a023745aefd84ebe6eefdc30765e73734", "report_type": "freeform"},
+    {"filename": "nestrep.psr", "byte_size": 38396, "sha256": "143c9778977f2bc9b0f5435267300057708571e47036c86f14e457fbdfb49244", "report_type": "nested"}
+  ]
+}

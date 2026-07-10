@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "repository": "PowerBuilder-Example",
+  "destination_repository": "power-builder-migration",
+  "seed_alignment_status_default": "frozen",
+  "destination_api_base": "/api/v1/psr",
+  "planned_api_routes": [
+    "/api/v1/psr/artifacts",
+    "/api/v1/psr/artifacts/{filename}",
+    "/api/v1/psr/artifacts/{filename}/download",
+    "/api/v1/psr/manifest",
+    "/api/v1/psr/route-mappings"
+  ],
+  "database_schema_fields": {
+    "column_count": "INTEGER NOT NULL DEFAULT 0",
+    "header_titles": "JSONB NOT NULL DEFAULT '[]'::jsonb",
+    "metadata_json": "JSONB NOT NULL DEFAULT '{}'::jsonb",
+    "seed_alignment_status": "VARCHAR(32) NOT NULL DEFAULT 'frozen'",
+    "fixture_relative_path": "VARCHAR(512) NOT NULL"
+  },
+  "route_mappings": [
+    {"filename": "bitmap.psr", "target_report_id": "bitmap-sample", "target_route": "/reports/bitmap/sample", "status": "planned"},
+    {"filename": "btnmaint.psr", "target_report_id": "maintenance-button", "target_route": "/reports/maintenance/button", "status": "planned"},
+    {"filename": "btnrept.psr", "target_report_id": "button-employee-compensation", "target_route": "/reports/button/employee-compensation", "status": "planned"},
+    {"filename": "comprep.psr", "target_report_id": "composite-customer-products", "target_route": "/reports/composite/customer-products", "status": "planned"},
+    {"filename": "contact.psr", "target_report_id": "contact", "target_route": "/reports/contact", "status": "planned"},
+    {"filename": "custlist.psr", "target_report_id": "list-customers", "target_route": "/reports/list/customers", "status": "planned"},
+    {"filename": "deptemps.psr", "target_report_id": "group-dept-employees", "target_route": "/reports/group/dept-employees", "status": "planned"},
+    {"filename": "deptlist.psr", "target_report_id": "list-departments", "target_route": "/reports/list/departments", "status": "planned"},
+    {"filename": "empgraph.psr", "target_report_id": "graph-employee-dept", "target_route": "/reports/graph/employee-dept", "status": "planned"},
+    {"filename": "empsals.psr", "target_report_id": "graph-employee-salary", "target_route": "/reports/graph/employee-salary", "status": "planned"},
+    {"filename": "ffempdat.psr", "target_report_id": "freeform-employee-data", "target_route": "/reports/freeform/employee-data", "status": "planned"},
+    {"filename": "nestrep.psr", "target_report_id": "nested-employees-by-dept", "target_route": "/reports/nested/employees-by-dept", "status": "planned"}
+  ],
+  "priority_structural_metadata": {
+    "comprep.psr": {
+      "report_type": "composite",
+      "processing_mode": 5,
+      "nested_dataobjects": ["d_cust_report", "d_products_graph", "d_products"],
+      "tables": ["customer", "product"],
+      "parser_confidence": "heuristic"
+    },
+    "nestrep.psr": {
+      "report_type": "nested",
+      "nested_dataobjects": ["d_emp_by_dept"],
+      "tables": ["employee", "department"],
+      "parser_confidence": "heuristic"
+    },
+    "btnrept.psr": {
+      "report_type": "button",
+      "header_titles": ["Employee Compensation Report"],
+      "parser_confidence": "heuristic"
+    },
+    "deptemps.psr": {
+      "report_type": "group",
+      "pbselect_present": true,
+      "tables": ["employee", "department"],
+      "parser_confidence": "heuristic"
+    }
+  }
+}
