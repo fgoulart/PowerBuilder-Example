@@ -20,3 +20,14 @@ With the PowerServer projects:
 •	Database Configuration in the Web APIs tab
 	If you use SQL Anywhere as the demo database, no change is needed to the database configuration. 
 	If you use PostgreSQL as the demo database, the default login account is postgres (user)/postgres (password). Please double check the connection. 
+
+## Hosting / ops (PowerServer → FastAPI)
+
+Destination clones aren't under `/app`; I'll use monorepo-relative paths for backend, fixtures, and Compose.
+
+FastAPI is the strangler-fig BFF. Configure `PUBLIC_API_URL` (default `http://localhost:8000`), bind host/port, HTTPS flag, timeouts (`3600`/`3600`/`120`), and optional `APPEON_LICENSE_KEY` / `LICENSE_KEY` via env—never embed license blobs. Runtime DB is **Postgres-only** (SQL Anywhere is origin-only). Smoke readiness with `GET /api/v1/health` (see `docs/powerserver-fastapi-hosting-map.md`). Demo Compose credentials are local-only.
+
+```bash
+docker compose up -d --build
+npm run backend:smoke
+```
